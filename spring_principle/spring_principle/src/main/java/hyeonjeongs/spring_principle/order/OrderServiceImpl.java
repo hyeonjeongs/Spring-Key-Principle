@@ -5,12 +5,16 @@ import hyeonjeongs.spring_principle.discount.FixDiscountPolicy;
 import hyeonjeongs.spring_principle.member.Member;
 import hyeonjeongs.spring_principle.member.MemberRepository;
 import hyeonjeongs.spring_principle.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository; //여기서 회원찾기
     private final DiscountPolicy discountPolicy; //고정할인정책 가져옴
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
